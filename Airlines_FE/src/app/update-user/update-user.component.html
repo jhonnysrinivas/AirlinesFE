@@ -1,0 +1,100 @@
+<br> <br> <br> <br> <br> <br>
+<div class="container">
+    <div *ngIf="successMessage != ''">
+        <div class="alert alert-success">
+            <strong>{{successMessage}}</strong>
+        </div>
+    </div>
+    <div *ngIf="errorMessage != ''">
+        <div class="alert alert-danger">
+            <strong>{{errorMessage}}</strong>
+        </div>
+    </div>
+    <div class="row gutters">
+    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+    <div class="card h-100">
+        <div class="card-body">
+            <div class="account-settings">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Maxwell Admin">
+                    </div>
+                    <h5 class="user-name">{{user.userName}}</h5>
+                    <h6 class="user-email">{{user.email}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    <form #userData = "ngForm" (ngSubmit) = "updateUser(userData.value)" >
+        <div class="card h-100">
+        <div class="card-body">
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h6 class="mb-2 text-success">Personal Details</h6>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="fullName">Username</label>
+                        <input type="text" class="form-control" value="{{user.userName}}" name="userName" placeholder="Enter full name" ngModel>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="eMail">Email</label>
+                        <input type="email" class="form-control" value="{{user.email}}" name="email" placeholder="Enter email ID" ngModel>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="phone">Password</label>
+                        <input type="text" class="form-control" value="{{user.password}}" name="password" placeholder="Enter Password" ngModel>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <h6 class="mt-3 mb-2 text-success">Card Details</h6>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="Street">Card Number</label>
+                        <input type="text" class="form-control" id="Street" placeholder="Card Number" value="{{user.cardNumber}}" name="cardNumber" ngModel>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <div class="form-group">
+                        <label for="ciTy">Name on card</label>
+                        <input type="text" class="form-control" id="ciTy" placeholder="Enter Name on card" value="{{user.cardName}}" name="cardName" ngModel>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                    <div class="form-group">
+                        <label for="sTate">Expiry date</label>
+                        <input type="text" class="form-control" id="sTate" placeholder="MM/YY" value="{{user.expiryDate}}" name="expiryDate" ngModel>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
+                    <div class="form-group">
+                        <label for="zIp">CVV Code</label>
+                        <input type="text" class="form-control" id="zIp" placeholder="CVV Code" value="{{user.cvvCode}}" name="cvvCode" maxlength="3" ngModel>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="row gutters">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="text-right">
+                        <input type="submit" id="submit" name="submit" class="btn btn-success" value="Update">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    </div>
+    </div>
+    </div>

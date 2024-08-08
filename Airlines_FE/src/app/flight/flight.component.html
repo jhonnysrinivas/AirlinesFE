@@ -1,0 +1,274 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<br> <br> <br> <br> <br> <br>
+<div class="container">
+<div class="row">
+    <div class="col-lg-4 col-xl-4">
+        <div class="card-box text-center">
+            <img src="{{flight.airlinesLogo}}" class="avatar-xl img-thumbnail" alt="profile-image">
+
+            <h4 class="mb-0">{{flight.flightName}}</h4>
+            <p class="text-muted">{{flight.airlinesName}}</p>
+
+            <button routerLink="/airlines" type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">View Airlines</button>
+
+            <div class="text-left mt-3">
+                <p class="text-muted mb-2 font-13"><strong>Boarding at :</strong> <span class="ml-2">{{flight.fromLocation}} ({{flight.fromAirport}})</span></p>
+
+                <p class="text-muted mb-2 font-13"><strong>Boarding on :</strong><span class="ml-2">{{flight.arrivalTime}}({{flight.arrivalDate}})</span></p>
+
+                <p class="text-muted mb-2 font-13"><strong>Landing at :</strong> <span class="ml-2">{{flight.toLocation}} ({{flight.toAirport}})</span></p>
+
+                <p class="text-muted mb-2 font-13"><strong>Landing on :</strong><span class="ml-2">{{flight.depatureTime}}({{flight.depatureDate}})</span></p>
+            </div>
+        </div> <!-- end card-box -->
+    </div> <!-- end col-->
+
+    <div class="col-lg-8 col-xl-8">
+        <div class="card-box">
+            <ul class="nav nav-pills navtab-bg">
+                <li class="nav-item">
+                    <a routerLink="/map" data-toggle="tab" aria-expanded="true" class="nav-link ml-0 active">
+                        <i class="mdi mdi-map-marker-multiple mr-1"></i>View Map
+                    </a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                
+                <div class="tab-pane show active" id="about-me">
+
+                    <h5 class="mb-4 text-uppercase"><i class="mdi mdi-airplane"></i>
+                        Route</h5>
+
+                    <ul class="list-unstyled timeline-sm">
+                        <li class="timeline-sm-item">
+                            <span class="timeline-sm-date">{{flight.arrivalTime}}</span>
+                            <h5 class="mt-0 mb-1">{{flight.fromLocation}}</h5>
+                            <p>{{flight.fromAirport}}</p>
+                            <p class="text-muted mt-2"><br><br></p>
+
+                        </li>
+                        <li class="timeline-sm-item">
+                            <span class="timeline-sm-date">{{flight.depatureTime}}</span>
+                            <h5 class="mt-0 mb-1">{{flight.toLocation}}</h5>
+                            <p>{{flight.toAirport}}</p>
+                            <p class="text-muted mt-2"></p>
+                        </li>
+                    </ul>
+
+                    <h5 class="mb-3 mt-4 text-uppercase"><i class="mdi mdi-seat mr-1"></i>
+                        Choose Seat</h5>
+                    <div class="table-responsive">
+                        <div class="container">
+                            <div class="row">
+                            <div class="col-md-6">
+                            <div class="card widget-signups">
+                            <div class="card-body">
+                            <h4 class="card-title">Economic Class ( {{flight.economicSeatings.seatCost}} /- rs)</h4>
+                            <div class="actions actions--inverse">
+                            <div class="actions__item">
+                            <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(35px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a href class="dropdown-item">Refresh</a>
+                            <a href class="dropdown-item">Manage Widgets</a>
+                            <a href class="dropdown-item">Settings</a>
+                            </div>
+                            </div>
+                            </div>        
+                            
+                            <div class="widget-signups__list" *ngFor="let row of flight.economicSeatings.seats"> 
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsA.seatId,row.seatsA.seatStatus)" data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsA.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsA.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsB.seatId,row.seatsB.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsB.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsB.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsC.seatId,row.seatsC.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsC.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsC.seatNo}}</div></a>&nbsp;&nbsp;&nbsp;
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsD.seatId,row.seatsD.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsD.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsD.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsE.seatId,row.seatsE.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsE.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsE.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.economicSeatings.seatingId,row.seatsF.seatId,row.seatsF.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsF.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsF.seatNo}}</div></a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                            <div class="card widget-signups">
+                            <div class="card-body">
+                            <h4 class="card-title">Business Class ( {{flight.businessSeatings.seatCost}}/- rs )</h4>
+                            <div class="actions actions--inverse">
+                            <div class="actions__item">
+                            <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
+                            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; transform: translate3d(35px, 28px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a href class="dropdown-item">Refresh</a>
+                            <a href class="dropdown-item">Manage Widgets</a>
+                            <a href class="dropdown-item">Settings</a>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="widget-signups__list" *ngFor="let row of flight.businessSeatings.seats"> 
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsA.seatId,row.seatsA.seatStatus)" data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsA.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsA.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsB.seatId,row.seatsB.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsB.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsB.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsC.seatId,row.seatsC.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsC.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsC.seatNo}}</div></a>&nbsp;&nbsp;&nbsp;
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsD.seatId,row.seatsD.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsD.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsD.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsE.seatId,row.seatsE.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsE.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsE.seatNo}}</div></a>
+                                <a (click)="selectSeat(flight.flightId,flight.businessSeatings.seatingId,row.seatsF.seatId,row.seatsF.seatStatus)"data-toggle="tooltip" title data-original-title="Jani Popovich" ><div class="avatar-char" [ngStyle]="row.seatsF.seatStatus=='Vacant'?{'background-color':'rgba(19, 234, 37, 0.273)'} : {'background-color': 'grey'}">{{row.seatsF.seatNo}}</div></a>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                    </div>
+
+                </div>
+                <!-- end timeline content-->
+
+                <div class="tab-pane" id="settings">
+                    <form>
+                        <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i> Personal Info</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" class="form-control" id="firstname" placeholder="Enter first name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" class="form-control" id="lastname" placeholder="Enter last name">
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="userbio">Bio</label>
+                                    <textarea class="form-control" id="userbio" rows="4" placeholder="Write something..."></textarea>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="useremail">Email Address</label>
+                                    <input type="email" class="form-control" id="useremail" placeholder="Enter email">
+                                    <span class="form-text text-muted"><small>If you want to change email please <a href="javascript: void(0);">click</a> here.</small></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="userpassword">Password</label>
+                                    <input type="password" class="form-control" id="userpassword" placeholder="Enter password">
+                                    <span class="form-text text-muted"><small>If you want to change password please <a href="javascript: void(0);">click</a> here.</small></span>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-office-building mr-1"></i> Company Info</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="companyname">Company Name</label>
+                                    <input type="text" class="form-control" id="companyname" placeholder="Enter company name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="cwebsite">Website</label>
+                                    <input type="text" class="form-control" id="cwebsite" placeholder="Enter website url">
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-earth mr-1"></i> Social</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-fb">Facebook</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-facebook-square"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-fb" placeholder="Url">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-tw">Twitter</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-twitter"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-tw" placeholder="Username">
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-insta">Instagram</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-instagram"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-insta" placeholder="Url">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-lin">Linkedin</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-linkedin"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-lin" placeholder="Url">
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-sky">Skype</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-skype"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-sky" placeholder="@username">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="social-gh">Github</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fab fa-github"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" id="social-gh" placeholder="Username">
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div> <!-- end row -->
+                        
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- end settings content-->
+
+            </div> <!-- end tab-content -->
+        </div> <!-- end card-box-->
+
+    </div> <!-- end col -->
+</div>
+</div>
+
+

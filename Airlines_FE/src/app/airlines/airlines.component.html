@@ -1,0 +1,25 @@
+<br> <br> <br> <br> <br> <br>
+<div class="container">
+    <button routerLink="/add-airlines" style="float: right;" type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Add Airlines</button><br><br>
+    <div class="row" *ngFor="let airline of airlines">
+        <div class="col-xl-12">
+            <div class="card mb-3 card-body">
+                <div class="row align-items-center">
+                    <div class="col-auto">
+                        <a href="#!.html">
+                          <img src="{{airline.airlinesLogo}}" class="width-90 rounded-3" alt="">
+                        </a>
+                    </div>
+                    <div class="col">
+                        <div class="overflow-hidden flex-nowrap">
+                            <h6 class="mb-1">
+                                <a href="#!" class="text-reset">{{airline.airlinesName}}</a>
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>
+

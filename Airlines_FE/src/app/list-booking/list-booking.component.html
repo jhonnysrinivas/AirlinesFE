@@ -1,0 +1,37 @@
+<br> <br> <br> <br> <br> <br>
+
+<div class="container pb-5 mb-2">
+    <!-- Alert-->
+    <div class="alert alert-success alert-success fade show text-center mb-30" *ngIf="successMessage != ''">{{successMessage}}</div>
+    
+    <div class="alert alert-info alert-dismissible fade show text-center mb-30"><span class="alert-close" data-dismiss="alert"></span><i class="fe-icon-award"></i>&nbsp;&nbsp;You Have <strong>{{bookingCount}}</strong> Bookings History Detailss.</div>
+    <!-- Cart Item-->
+    <div *ngFor="let bookingDetails of booking">
+    <div class="cart-item d-md-flex justify-content-between">
+        <div class="px-3 my-3">
+            <a class="cart-item-product">
+                <div class="cart-item-product-thumb"><img src="{{bookingDetails.airlinesLogo}}" alt="Product"></div>
+                <div class="cart-item-product-info">
+                    <h4 class="cart-item-product-title">{{bookingDetails.flightName}}</h4>
+                    <span><strong>Airlines:</strong> {{bookingDetails.airlines}}</span>
+                    <span><strong>Booking Date:</strong> 11-04-2024</span>
+                </div>
+            </a>
+        </div>
+        <div class="px-3 my-3 text-center">
+            <div class="cart-item-label">SeatNo</div>
+            <div class="count-input">
+                <input type="text" value="{{bookingDetails.seatNo}}" disabled class="form-control"/>
+            </div>
+        </div>
+        <div class="px-3 my-3 text-center">
+            <div class="cart-item-label">GST</div><span class="text-xl font-weight-medium">${{bookingDetails.gst}}.00</span>
+        </div>
+        <div class="px-3 my-3 text-center">
+            <div class="cart-item-label">Paid</div><span class="text-xl font-weight-medium">${{bookingDetails.total}}.00</span>
+        </div>
+    </div>
+    </div>
+    <!-- Buttons-->
+    <hr class="my-2">
+    </div>

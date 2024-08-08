@@ -1,0 +1,156 @@
+<br> <br> <br> <br> <br> <br>
+<div class="container-fluid">
+  <div *ngIf="successMessage != ''">
+    <div class="alert alert-success">
+        <strong>{{successMessage}}</strong>
+    </div>
+</div>
+    <form #flight = "ngForm" (ngSubmit) = "addFlight(flight.value)" >
+      
+    <div class="container">
+      <!-- Title -->
+      <div class="d-flex justify-content-between align-items-lg-center py-3 flex-column flex-lg-row">
+        <h2 class="h5 mb-3 mb-lg-0"><a href="/home" class="text-muted"><i class="bi bi-arrow-left-square me-2"></i></a></h2>
+        <div class="hstack gap-3">
+          <input  class="btn btn-primary btn-sm btn-icon-text" type = "submit" value = "Add Flight"><i class="bi bi-save"></i>
+        </div>
+      </div>
+    
+      <!-- Main content -->
+      <div class="row">
+        <!-- Left side -->
+        <div class="col-lg-8">
+          <!-- Basic information -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="h6 mb-4"><b>Flight Details</b></h3>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Flight Name</label>
+                    <input type="text" name="flightName" class="form-control" ngModel>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Airlines</label>
+                    <select class="form-select"name="airlines" ngModel>
+                        <option *ngFor="let airline of airlines" value="{{airline.airlinesId}}">{{airline.airlinesName}}</option>
+                      </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Address -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="h6 mb-4"><b>Seating Details</b></h3>
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Economic Seat Cost</label>
+                      <input type="number" class="form-control" name="ecoSeatCost" ngModel>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">No of Economic Rows (row have 6 seats)</label>
+                      <input type="number" class="form-control" name="ecoSeatingCapacity" ngModel>
+                    </div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">Business seat Cost</label>
+                      <input type="number" class="form-control" name="busSeatCost" ngModel>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="mb-3">
+                      <label class="form-label">N of Business Rows (row have 6 seats)</label>
+                      <input type="number" class="form-control" name = "busSeatingCapacity" ngModel>
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Right side -->
+        <div class="col-lg-4">
+          <!-- Status -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="h6"><b>Flight Arrival Details</b></h3>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Arrival Location</label>
+                    <input type="text" class="form-control" name="fromLocation" ngModel>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Arrival Airport</label>
+                    <input type="text" class="form-control" name="fromAirport" ngModel>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Arrival Time</label>
+                    <input type="time" class="form-control" name="arrivalTime" ngModel>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Arrival Date</label>
+                    <input type="date" class="form-control" name="arrivalDate" ngModel>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Avatar -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="h6"><b>Flight Landing Details</b></h5>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Landing Location</label>
+                    <input type="text" class="form-control" name="toLocation" ngModel>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Landing Airport</label>
+                    <input type="text" class="form-control" name="toAirport" ngModel>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Landing Time</label>
+                    <input type="time" class="form-control" name="depatureTime" ngModel>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label class="form-label">Landing Date</label>
+                    <input type="date" class="form-control" name="depatureDate" ngModel>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</form>
+</div>

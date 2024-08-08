@@ -1,0 +1,59 @@
+body{
+    padding-top:40px;
+     
+    }
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    
+    .avatar-md {
+        height: 5rem;
+        width: 5rem;
+    }
+    
+    .fs-19 {
+        font-size: 19px;
+    }
+    
+    .primary-link {
+        color: #314047;
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    
+    a {
+        color: #02af74;
+        text-decoration: none;
+    }
+    
+    .favorite-icon a {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        font-size: 18px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid #20dd13;
+        border-radius: 6px;
+        color: rgba(3, 175, 12, 0.953);
+        -webkit-transition: all .5s ease;
+        transition: all .5s ease;
+    }
+    
+    
+    .candidate-list-box .favorite-icon {
+        position: absolute;
+        right: 22px;
+        top: 22px;
+    }
+    .fs-14 {
+        font-size: 14px;
+    }
+    .bg-soft-secondary {
+        background-color: rgba(116,120,141,.15)!important;
+        color: #74788d!important;
+    }
+    
+    .mt-1 {
+        margin-top: 0.25rem!important;
+    }
