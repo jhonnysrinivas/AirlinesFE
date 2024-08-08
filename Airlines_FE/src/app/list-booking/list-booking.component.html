@@ -28,7 +28,8 @@
             <div class="cart-item-label">GST</div><span class="text-xl font-weight-medium">${{bookingDetails.gst}}.00</span>
         </div>
         <div class="px-3 my-3 text-center">
-            <div class="cart-item-label">Paid</div><span class="text-xl font-weight-medium">${{bookingDetails.total}}.00</span>
+            <div class="cart-item-label">Paid</div><span class="text-xl font-weight-medium">${{bookingDetails.total}}.00 </span><br>
+            <button type="button" class="btn btn-primary" (click) = "getInvoice(bookingDetails.seatId)">Invoice</button>
         </div>
     </div>
     </div>

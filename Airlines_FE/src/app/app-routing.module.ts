@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'map', component:MapComponent},
   {path:'add-airlines', component:AddAirlinesComponent},
   {path:'payment/:flightId/:seatId/:bookingId', component:PaymentComponent},
-  {path:'invoice/:bookingId', component:InvoiceComponent}
+  {path:'invoice/:seatId', component:InvoiceComponent}
 ];
 
 @NgModule({

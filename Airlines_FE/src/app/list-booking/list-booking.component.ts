@@ -35,5 +35,7 @@ export class ListBookingComponent {
     });
   }
 
-
+  getInvoice(seatId:any){
+    this.router.navigate(["/invoice/" + seatId]);
+  }
 }
