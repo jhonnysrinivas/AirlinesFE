@@ -26,7 +26,7 @@ export class SignUpComponent {
       },
       err => {
           this.successMessage = "";
-          this.errorMessage = "Invalid Account Details";
+          this.errorMessage = err.error.message;
       }
   );
   }

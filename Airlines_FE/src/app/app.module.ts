@@ -7,7 +7,6 @@ import { ListFlightComponent } from './list-flight/list-flight.component';
 import { FlightComponent } from './flight/flight.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BookingComponent } from './booking/booking.component';
-import { OffersComponent } from './offers/offers.component';
 import { ListBookingComponent } from './list-booking/list-booking.component';
 import { LoginComponent } from './login/login.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
@@ -26,7 +25,6 @@ import { HomeComponent } from './home/home.component';
     ListFlightComponent,
     FlightComponent,
     BookingComponent,
-    OffersComponent,
     ListBookingComponent,
     LoginComponent,
     AddFlightComponent,

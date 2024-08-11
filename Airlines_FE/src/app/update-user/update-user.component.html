@@ -17,10 +17,11 @@
             <div class="account-settings">
                 <div class="user-profile">
                     <div class="user-avatar">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="Maxwell Admin">
+                        <img src="{{user.icon}}" alt="Maxwell Admin">
                     </div>
                     <h5 class="user-name">{{user.userName}}</h5>
-                    <h6 class="user-email">{{user.email}}</h6>
+                    <h6 class="user-email">{{user.email}}</h6><br>
+                    <a class="btn btn-success"  href="#modal">Update Icon</a>
                 </div>
             </div>
         </div>
@@ -37,19 +38,19 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="fullName">Username</label>
-                        <input type="text" class="form-control" value="{{user.userName}}" name="userName" placeholder="Enter full name" ngModel>
+                        <input type="text" class="form-control" [(ngModel)]="user.userName" name="userName" placeholder="Enter full name" ngModel>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="eMail">Email</label>
-                        <input type="email" class="form-control" value="{{user.email}}" name="email" placeholder="Enter email ID" ngModel>
+                        <input type="email" class="form-control" [(ngModel)]="user.email" name="email" placeholder="Enter email ID" ngModel>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="phone">Password</label>
-                        <input type="text" class="form-control" value="{{user.password}}" name="password" placeholder="Enter Password" ngModel>
+                        <input type="text" class="form-control" [(ngModel)]="user.password" name="password" placeholder="Enter Password" ngModel>
                     </div>
                 </div>
             </div>
@@ -61,25 +62,25 @@
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="Street">Card Number</label>
-                        <input type="text" class="form-control" id="Street" placeholder="Card Number" value="{{user.cardNumber}}" name="cardNumber" ngModel>
+                        <input type="text" class="form-control" id="Street" placeholder="Card Number" [(ngModel)]="user.cardNumber" name="cardNumber" ngModel>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                     <div class="form-group">
                         <label for="ciTy">Name on card</label>
-                        <input type="text" class="form-control" id="ciTy" placeholder="Enter Name on card" value="{{user.cardName}}" name="cardName" ngModel>
+                        <input type="text" class="form-control" id="ciTy" placeholder="Enter Name on card" [(ngModel)]="user.cardName" name="cardName" ngModel>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
                     <div class="form-group">
                         <label for="sTate">Expiry date</label>
-                        <input type="text" class="form-control" id="sTate" placeholder="MM/YY" value="{{user.expiryDate}}" name="expiryDate" ngModel>
+                        <input type="text" class="form-control" id="sTate" placeholder="MM/YY" [(ngModel)]="user.expiryDate" name="expiryDate" ngModel>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-12">
                     <div class="form-group">
                         <label for="zIp">CVV Code</label>
-                        <input type="text" class="form-control" id="zIp" placeholder="CVV Code" value="{{user.cvvCode}}" name="cvvCode" maxlength="3" ngModel>
+                        <input type="text" class="form-control" id="zIp" placeholder="CVV Code" [(ngModel)]="user.cvvCode" name="cvvCode" maxlength="3" ngModel>
                     </div>
                 </div>
             </div>
@@ -96,5 +97,29 @@
     </div>
     </form>
     </div>
+
+
+    <div class="container" id="modal">
+        <div class="integration-list row justify-content-center py-5">
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar1.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar2.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar3.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar4.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar4.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar5.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar5.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar6.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar7.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://bootdey.com/img/Content/avatar/avatar8.png')"><img class="shadow rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar8.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://cdn-icons-png.flaticon.com/512/189/189533.png')"><img class="shadow rounded-circle" src="https://cdn-icons-png.flaticon.com/512/189/189533.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/genshin-impact/character-icons/ui-avataricon-tartaglia.png')"><img class="shadow rounded-circle" src="https://cdn.wanderer.moe/cdn-cgi/image/width=192,height=192,quality=75/genshin-impact/character-icons/ui-avataricon-tartaglia.png" alt=""></a></div>
+            <div class="item col-4 col-md-3 col-lg-2 mb-3 mb-lg-5"><a (click) = "updateIcon('https://i.pinimg.com/originals/b2/2a/3e/b22a3e3ef491c790e2cc9ab7aebaa3dc.png')"><img class="shadow rounded-circle" src="https://i.pinimg.com/originals/b2/2a/3e/b22a3e3ef491c790e2cc9ab7aebaa3dc.png" alt=""></a></div>
+        </div>
+        <!--//row-->
+        <div class="pt-1 text-center">
+            <a class="btn btn-light" href="#">Close</a>
+        </div>
+    </div>
+
+
     </div>
     </div>
+    

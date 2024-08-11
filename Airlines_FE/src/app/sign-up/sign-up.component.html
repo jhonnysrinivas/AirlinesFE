@@ -35,7 +35,8 @@
                                 </div>
                                 <div *ngIf="successMessage != ''">
                                     <div class="alert alert-success">
-                                        <strong>{{successMessage}}</strong>
+                                        <strong>{{successMessage}}. </strong>
+                                        <a routerLink="/login">Click here</a> to login.
                                     </div>
                                 </div>
                                 <div *ngIf="errorMessage != ''">

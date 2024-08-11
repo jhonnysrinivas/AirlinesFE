@@ -27,9 +27,9 @@ export class UpdateUserComponent implements OnInit{
   }
 
   updateUser(user:any){
-    this.user.userName = (user.userName == "")? this.user.userName: user.userName;
-    this.user.email = (user.email == "")? this.user.email: user.email;
-    this.user.password = (user.password == "")? this.user.password: user.password;
+    this.user.userName =  user.userName;
+    this.user.email = user.email;
+    this.user.password = user.password;
     this.user.cardNumber = user.cardNumber;
     this.user.cardName = user.cardName;
     this.user.expiryDate = user.expiryDate;
@@ -37,6 +37,23 @@ export class UpdateUserComponent implements OnInit{
 
 
       console.warn("update-user body", user);
+      this.userSer.updateUserDetails(this.user).subscribe(
+        suc => {
+          this.successMessage = "User Details Successfully Updated";
+          this.errorMessage = "";
+          //update session details
+          this.userSer.updateSessionStorage(this.user);
+      },
+      err => {
+          this.successMessage = "";
+          this.errorMessage = err.error.message;
+      });      
+  }
+
+
+  updateIcon(icon:any){
+      console.warn("icon ->", icon);
+      this.user.icon = icon;
       this.userSer.updateUserDetails(this.user).subscribe(
         suc => {
           this.successMessage = "User Details Successfully Updated";

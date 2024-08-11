@@ -1,88 +1,107 @@
-<br> <br> <br> <br> <br> <br>
+<br><br><br><br><br>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <div id="invoice">
-                
-                <div class="invoice overflow-auto">
-                    <div style="min-width: 600px">
-                        <main>
-                            <div class="row contacts">
-                                <div class="col invoice-to">
-                                    <div class="text-gray-light">INVOICE TO:</div>
-                                    <h2 class="to">{{user.userName}}</h2>
-                                    <div class="address">{{user.email}}</div>
-                                </div>
-                                <div class="col invoice-details">
-                                    <h1 class="invoice-id">#{{booking.bookingId}}</h1>
-                                    <div class="date">Date of Booking: {{booking.bookingDate}}</div>
-                                </div>
-                            </div>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>SEAT NO</th>
-                                        <th class="text-left">Flight NAME</th>
-                                        <th class="text-right">GST</th>
-                                        <th class="text-right">SEAT Cost</th>
-                                        <th class="text-right">TOTAL PAID</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class="no">{{booking.seatNo}}</td>
-                                        <td class="text-left">
-                                            <h3>
-                                                <a target="_blank" href="javascript:;">
-										{{booking.flightName}}
-										</a>
-                                            </h3>
-                                            
-										   Useful videos
-									   <br>{{booking.airlines}}</td>
-                                        <td class="unit">${{booking.gst}}</td>
-                                        <td class="qty">${{booking.seatCost}}</td>
-                                        <td class="total">${{booking.total}}</td>
-                                    </tr>
-                                </tbody>
-                                <br><br><br>
-                                <tr>
-                                    <td class="no">Paid Via</td>
-                                    <td class="text-left">{{booking.paymentType}} : {{booking.paymentFrom}}</td>
-                                </tr>
-                                <tfoot>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">SUBTOTAL</td>
-                                        <td>${{booking.total}}</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">TAX 0%</td>
-                                        <td>$0.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2"></td>
-                                        <td colspan="2">GRAND TOTAL</td>
-                                        <td>${{booking.total}}</td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                            <div class="thanks">Thank you!</div>
-                        </main>
-                        <footer>Invoice was created on a computer and is valid without the signature and seal.</footer>
-                    </div>
-                    <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->
-                    <div></div>
-                </div>
-
-                <div class="toolbar hidden-print">
-                    <div class="text-end">
-                        <a type="button" class="btn btn-dark" href="javascript:window.print()"><i class="fa fa-print"></i> Print</a>
-                    </div>
-                    <hr>
-                </div>
+   <div class="col-md-12">
+      <div class="invoice">
+         <!-- begin invoice-company -->
+         <div class="invoice-company text-inverse f-w-600">
+            <span class="pull-right hidden-print">
+            
+            <a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10 p-l-5"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> Print</a>
+            <a routerLink="/booking/View" class="btn btn-sm btn-white m-b-10 p-l-5">Cancel</a>    
+        </span>
+            FlyWithus.com
+         </div>
+         <!-- end invoice-company -->
+         <!-- begin invoice-header -->
+         <div class="invoice-header">
+            <div class="invoice-from">
+               <small>Invoice to</small>
+               <address class="m-t-5 m-b-5">
+                  <strong class="text-inverse">{{user.userName}}</strong><br>
+                  {{user.email}}
+               </address>
             </div>
-        </div>
-    </div>
+            <div class="invoice-date">
+               <small>Booking Details</small>
+               <div class="invoice-detail">
+                  #{{booking.bookingId}}<br>
+                  {{booking.bookingDate}}
+               </div>
+            </div>
+         </div>
+         <!-- end invoice-header -->
+         <!-- begin invoice-content -->
+         <div class="invoice-content">
+            <!-- begin table-responsive -->
+            <div class="table-responsive">
+               <table class="table table-invoice">
+                  <thead>
+                     <tr>
+                        <th>Flight Details</th>
+                        <th class="text-center" width="10%">Seat No</th>
+                        <th class="text-right" width="20%">Seat Cost</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>
+                           <span class="text-inverse">{{booking.flightName}}</span><br>
+                           <small>{{booking.airlines}}</small>
+                        </td>
+                        <td class="text-center">{{booking.seatNo}}</td>
+                        <td class="text-right">{{booking.seatCost}}</td>
+                     </tr>
+                     <tr>
+                        <td>
+                           <span class="text-inverse">Paid Via: </span><br>
+                           <small>{{booking.paymentType}} : {{booking.paymentFrom}}</small>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <!-- end table-responsive -->
+            <!-- begin invoice-price -->
+            <div class="invoice-price">
+               <div class="invoice-price-left">
+                  <div class="invoice-price-row">
+                     <div class="sub-price">
+                        <small>SUBTOTAL</small>
+                        <span class="text-inverse">${{booking.seatCost}}</span>
+                     </div>
+                     <div class="sub-price">
+                        <i class="fa fa-plus text-muted"></i>
+                     </div>
+                     <div class="sub-price">
+                        <small>GST (10%)</small>
+                        <span class="text-inverse">${{booking.gst}}</span>
+                     </div>
+                  </div>
+               </div>
+               <div class="invoice-price-right">
+                  <small>TOTAL</small> <span class="f-w-600">${{booking.total}}</span>
+               </div>
+            </div>
+            <!-- end invoice-price -->
+         </div>
+         <!-- end invoice-content -->
+         <!-- begin invoice-note -->
+         <div class="invoice-note">
+            * Make sure to react Boarding point before 30 mins of Arriaval Time<br>
+            * Carry your Government Id Proof while Boarding<br>
+         </div>
+         <!-- end invoice-note -->
+         <!-- begin invoice-footer -->
+         <div class="invoice-footer">
+            <p class="text-center m-b-5 f-w-600">
+               THANK YOU FOR YOUR BUSINESS
+            </p>
+            <p class="text-center">
+               <span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> flywithus.com</span>
+            </p>
+         </div>
+         <!-- end invoice-footer -->
+      </div>
+   </div>
 </div>
